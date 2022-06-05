@@ -23,6 +23,7 @@ export default defineConfig(({ command }) => {
   }
 
   return {
+    base: '/vue3-admin-typescript-vite/',
     optimizeDeps: {
       include: [],
     },
