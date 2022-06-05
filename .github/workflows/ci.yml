@@ -1,0 +1,34 @@
+name: GitHub Actions Build and Deploy Demo
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        registry-url: https://registry.npmjs.com/
+
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: latest
+
+    - name: Install dependencies
+      run: pnpm install
+
+    - name: Build Element Plus
+      run: pnpm build
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@4.1.5
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: dist # The folder the action should deploy.

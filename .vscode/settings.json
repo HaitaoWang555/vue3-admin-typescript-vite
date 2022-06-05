@@ -1,0 +1,15 @@
+{
+  "editor.formatOnSave": true,
+  "path-autocomplete.pathMappings": {
+    "@/": "${folder}/src/",
+  },
+  "path-autocomplete.extensionOnImport": true,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "volar.completion.autoImportComponent": false,
+  "[vue]": {
+    "editor.formatOnSave": false
+  },
+  "[ts]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+}
