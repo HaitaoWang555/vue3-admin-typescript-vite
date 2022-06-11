@@ -15,7 +15,6 @@ jobs:
       with:
         node-version: '16'
         registry-url: https://registry.npmjs.com/
-        strict-peer-dependencies: false
 
     - name: Setup pnpm
       uses: pnpm/action-setup@v2
