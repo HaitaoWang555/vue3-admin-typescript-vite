@@ -1,6 +1,10 @@
 import Clipboard from 'clipboard'
 
-export default function handleClipboard(text: string, event: Event, callback: any): void {
+export default function handleClipboard(
+  text: string,
+  event: Event,
+  callback: any
+): void {
   const clipboard = new Clipboard(event.target as Element, {
     text: () => text,
   })
@@ -13,5 +17,5 @@ export default function handleClipboard(text: string, event: Event, callback: an
     callback('error')
     clipboard.destroy()
   })
-    ; (clipboard as any).onClick(event)
+  ;(clipboard as any).onClick(event)
 }

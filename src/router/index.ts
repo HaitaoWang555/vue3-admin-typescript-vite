@@ -47,6 +47,6 @@ export function resetRouter(): void {
     history,
     routes: constantRoutes,
   })
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ; (router as any).matcher = (newRouter as any).matcher // reset router
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ;(router as any).matcher = (newRouter as any).matcher // reset router
 }

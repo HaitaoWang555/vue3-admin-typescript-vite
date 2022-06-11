@@ -27,17 +27,13 @@ function handleClipboard(text: string, event: Event) {
         <div
           v-for="item of svgIcons"
           :key="item"
-          @click="handleClipboard(generateIconCode(item), $event)"
-        >
+          @click="handleClipboard(generateIconCode(item), $event)">
           <el-tooltip placement="top">
             <template #content>
               {{ generateIconCode(item) }}
             </template>
             <div class="icon-item">
-              <SvgIcon
-                :icon-class="item"
-                class-name="disabled"
-              />
+              <SvgIcon :icon-class="item" class-name="disabled" />
               <span>{{ item }}</span>
             </div>
           </el-tooltip>

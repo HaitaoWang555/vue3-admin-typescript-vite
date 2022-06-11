@@ -55,7 +55,8 @@ const handleLogin = () => {
   loginForm.value.validate((valid: boolean) => {
     if (valid) {
       loading.value = true
-      userStore.login(toRaw(formParams))
+      userStore
+        .login(toRaw(formParams))
         .then(() => {
           const redirect = route.query && route.query.redirect
 
@@ -81,12 +82,9 @@ const handleLogin = () => {
       :rules="loginRules"
       class="login-form"
       auto-complete="on"
-      label-position="left"
-    >
+      label-position="left">
       <div class="title-container">
-        <h3 class="title">
-          Login Form
-        </h3>
+        <h3 class="title">Login Form</h3>
       </div>
 
       <el-form-item prop="username">
@@ -100,8 +98,7 @@ const handleLogin = () => {
           name="username"
           type="text"
           tabindex="1"
-          auto-complete="on"
-        />
+          auto-complete="on" />
       </el-form-item>
 
       <el-form-item prop="password">
@@ -117,15 +114,10 @@ const handleLogin = () => {
           name="password"
           tabindex="2"
           auto-complete="on"
-          @keyup.enter="handleLogin"
-        />
-        <span
-          class="show-pwd"
-          @click="showPwd"
-        >
+          @keyup.enter="handleLogin" />
+        <span class="show-pwd" @click="showPwd">
           <svg-icon
-            :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
-          />
+            :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
         </span>
       </el-form-item>
 
@@ -133,14 +125,13 @@ const handleLogin = () => {
         :loading="loading"
         type="primary"
         style="width: 100%; margin-bottom: 30px"
-        @click="handleLogin"
-      >
+        @click="handleLogin">
         Login
       </el-button>
 
       <div class="tips">
         <span style="margin-right: 20px">username: admin</span>
-        <span> password: any</span>
+        <span>password: any</span>
       </div>
     </el-form>
   </div>

@@ -17,9 +17,7 @@ export const useUserStore = defineStore({
     name: '',
     avatar: '',
   }),
-  getters: {
-
-  },
+  getters: {},
   actions: {
     async login(userInfo: API.LoginParams): Promise<null> {
       const { username, password } = userInfo
@@ -42,7 +40,9 @@ export const useUserStore = defineStore({
           .then((response) => {
             const { data } = response.data
             if (!data) {
-              return reject(new Error('Verification failed, please Login again.'))
+              return reject(
+                new Error('Verification failed, please Login again.')
+              )
             }
 
             const { name, avatar } = data

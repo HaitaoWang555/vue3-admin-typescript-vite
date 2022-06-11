@@ -47,9 +47,11 @@ export default [
       body: {
         username: 'admin' | 'editor'
       }
-    }): API.ResponseBodyType<{
-      token?: TokenType
-    }> | API.ErrorResponse => {
+    }):
+      | API.ResponseBodyType<{
+          token?: TokenType
+        }>
+      | API.ErrorResponse => {
       const { username } = config.body
       const token = tokens[username]
 

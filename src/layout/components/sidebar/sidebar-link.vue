@@ -32,10 +32,7 @@ const linkProps = (to: string) => {
 </script>
 
 <template>
-  <component
-    :is="type"
-    v-bind="linkProps(to)"
-  >
+  <component :is="type" v-bind="linkProps(to)">
     <slot />
   </component>
 </template>

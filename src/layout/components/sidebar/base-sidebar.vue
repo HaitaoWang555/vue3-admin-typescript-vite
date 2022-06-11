@@ -29,10 +29,7 @@ const isCollapse = computed(() => !sidebar.value.opened)
 
 <template>
   <div :class="{ 'has-logo': showLogo }">
-    <Logo
-      v-if="showLogo"
-      :collapse="isCollapse"
-    />
+    <Logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
@@ -42,14 +39,12 @@ const isCollapse = computed(() => !sidebar.value.opened)
         :unique-opened="false"
         :active-text-color="variables.menuActiveText"
         :collapse-transition="false"
-        mode="vertical"
-      >
+        mode="vertical">
         <sidebar-item
           v-for="item in routes"
           :key="item.path"
           :item="item"
-          :base-path="item.path"
-        />
+          :base-path="item.path" />
       </el-menu>
     </el-scrollbar>
   </div>

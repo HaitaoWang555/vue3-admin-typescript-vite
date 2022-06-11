@@ -73,19 +73,13 @@ const resolvePath = (routePath: string) => {
         hasOneShowingChild(item.children, item as RouteRecordRaw) &&
           (!onlyOneChild.children || onlyOneChild.noShowingChildren) &&
           !item.alwaysShow
-      "
-    >
-      <AppLink
-        v-if="onlyOneChild.meta"
-        :to="resolvePath(onlyOneChild.path)"
-      >
+      ">
+      <AppLink v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
         <el-menu-item
           :index="resolvePath(onlyOneChild.path)"
-          :class="{ 'submenu-title-noDropdown': !isNest }"
-        >
+          :class="{ 'submenu-title-noDropdown': !isNest }">
           <BaseItem
-            :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
-          />
+            :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)" />
           <template #title>
             {{ onlyOneChild.meta.title }}
           </template>
@@ -93,17 +87,12 @@ const resolvePath = (routePath: string) => {
       </AppLink>
     </template>
 
-    <el-sub-menu
-      v-else
-      :index="resolvePath(item.path)"
-      popper-append-to-body
-    >
+    <el-sub-menu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template #title>
         <BaseItem
           v-if="item.meta"
           :icon="item.meta && item.meta.icon"
-          :title="item.meta.title"
-        />
+          :title="item.meta.title" />
       </template>
       <sidebar-item
         v-for="child in item.children"
@@ -111,8 +100,7 @@ const resolvePath = (routePath: string) => {
         :is-nest="true"
         :item="child"
         :base-path="resolvePath(child.path)"
-        class="nest-menu"
-      />
+        class="nest-menu" />
     </el-sub-menu>
   </div>
 </template>

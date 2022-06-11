@@ -53,8 +53,7 @@ function touch(path: string) {
   const time = new Date()
   try {
     utimesSync(path, time, time)
-  }
-  catch (err) {
+  } catch (err) {
     closeSync(openSync(path, 'w'))
   }
 }
@@ -76,7 +75,7 @@ export const svgBuilder = (svgPath: string, perfix = 'icon'): Plugin => {
       )
     },
     configureServer(server: ViteDevServer) {
-      ['add', 'onlink', 'change'].forEach((event) => {
+      ;['add', 'onlink', 'change'].forEach((event) => {
         server.watcher.on(event, (filepath: string) => {
           if (filepath.includes('src\\icons')) {
             touch('vite.config.ts')

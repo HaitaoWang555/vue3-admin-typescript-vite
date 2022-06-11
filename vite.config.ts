@@ -54,9 +54,7 @@ export default defineConfig(({ command }) => {
         ],
 
         // Auto import for all module exports under directories
-        dirs: [
-          'src/store/modules',
-        ],
+        dirs: ['src/store/modules'],
 
         dts: true,
 

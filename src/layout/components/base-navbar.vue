@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import Breadcrumb from '@/components/Breadcrumb/base-breadcrumb.vue'
 
 const appstore = useAppStore()
@@ -13,7 +12,7 @@ const avatar = computed(() => userstore.avatar)
 const toggleSideBar = () => {
   appstore.toggleSideBar()
 }
-const logout = async() => {
+const logout = async () => {
   await userstore.logout()
 
   router.push(`/login?redirect=${route.fullPath}`)
@@ -25,44 +24,32 @@ const logout = async() => {
     <BaseHamburger
       :is-active="sidebar.opened"
       class="hamburger-container"
-      @toggle-click="toggleSideBar"
-    />
+      @toggle-click="toggleSideBar" />
 
     <Breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
-      <el-dropdown
-        class="avatar-container"
-        trigger="click"
-      >
+      <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <img
-            :src="avatar + '?imageView2/1/w/80/h/80'"
-            class="user-avatar"
-          >
+          <img :src="avatar + '?imageView2/1/w/80/h/80'" class="user-avatar" />
           <i-ep-caret-bottom class="el-icon-caret-bottom" />
         </div>
         <template #dropdown>
           <el-dropdown-menu class="user-dropdown">
             <router-link to="/">
-              <el-dropdown-item> Home </el-dropdown-item>
+              <el-dropdown-item>Home</el-dropdown-item>
             </router-link>
             <a
               target="_blank"
-              href="https://github.com/HaitaoWang555/vue3-admin-template"
-            >
+              href="https://github.com/HaitaoWang555/vue3-admin-template">
               <el-dropdown-item>Github</el-dropdown-item>
             </a>
             <a
               target="_blank"
-              href="https://github.com/HaitaoWang555/vue3-admin-template"
-            >
+              href="https://github.com/HaitaoWang555/vue3-admin-template">
               <el-dropdown-item>Docs</el-dropdown-item>
             </a>
-            <el-dropdown-item
-              divided
-              @click="logout"
-            >
+            <el-dropdown-item divided @click="logout">
               <span style="display: block">Log Out</span>
             </el-dropdown-item>
           </el-dropdown-menu>

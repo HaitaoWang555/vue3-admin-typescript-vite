@@ -6,10 +6,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <SvgIcon
-    v-if="props.icon"
-    :icon-class="props.icon"
-  />
+  <SvgIcon v-if="props.icon" :icon-class="props.icon" />
 
   <span v-if="props.title">
     <slot name="title">{{ props.title }}</slot>
