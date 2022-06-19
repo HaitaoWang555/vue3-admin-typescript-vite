@@ -1,3 +1,5 @@
+import type { CurrentUser, ResponseBodyType, ErrorResponse } from '@/types/api'
+
 type TokenType = 'admin-token' | 'editor-token'
 
 const tokens: {
@@ -17,8 +19,8 @@ const tokens: {
 }
 
 const users: {
-  'admin-token': API.CurrentUser
-  'editor-token': API.CurrentUser
+  'admin-token': CurrentUser
+  'editor-token': CurrentUser
 } = {
   'admin-token': {
     id: 5555,
@@ -48,10 +50,10 @@ export default [
         username: 'admin' | 'editor'
       }
     }):
-      | API.ResponseBodyType<{
+      | ResponseBodyType<{
           token?: TokenType
         }>
-      | API.ErrorResponse => {
+      | ErrorResponse => {
       const { username } = config.body
       const token = tokens[username]
 
@@ -80,7 +82,7 @@ export default [
       query: {
         token: TokenType
       }
-    }): API.ResponseBodyType<API.CurrentUser> | API.ErrorResponse => {
+    }): ResponseBodyType<CurrentUser> | ErrorResponse => {
       const { token } = config.query
       const info = users[token]
 
@@ -105,7 +107,7 @@ export default [
   {
     url: '/vue-admin-template/user/logout',
     type: 'post',
-    response: (): API.ResponseBodyType<string> => {
+    response: (): ResponseBodyType<string> => {
       return {
         code: 20000,
         success: true,

@@ -1,3 +1,4 @@
+import type { ResponseBodyType } from '@/types/api'
 import axios from 'axios'
 
 // create an axios instance
@@ -33,7 +34,7 @@ service.interceptors.response.use(
    * You can also judge the status by HTTP Status Code
    */
   (response) => {
-    const res: API.ResponseBodyType<unknown> = response.data
+    const res: ResponseBodyType<unknown> = response.data
     // if the custom code is not 0, it is judged as an error.
     if (res.code !== 20000) {
       // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;

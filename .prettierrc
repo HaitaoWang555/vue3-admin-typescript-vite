@@ -2,7 +2,8 @@
   "semi": false,
   "arrowParens": "always",
   "singleQuote": true,
-  "bracketSameLine": true,
+  "bracketSameLine": false,
+  "jsxBracketSameLine": false,
   "tabWidth": 2,
   "htmlWhitespaceSensitivity": 'ignore', 
 }

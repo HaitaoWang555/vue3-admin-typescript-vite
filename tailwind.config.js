@@ -3,6 +3,12 @@ module.exports = {
   preflight: true,
   theme: {
     extend: {},
+    textColor: {
+      primary: '#409eff',
+      secondary: '#67c23a',
+      danger: '#f56c6c',
+      warning: '#e6a23c',
+    },
   },
   plugins: [],
 }

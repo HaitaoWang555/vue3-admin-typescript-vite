@@ -27,6 +27,8 @@ module.exports = defineConfig({
   },
   plugins: ['prettier'],
   rules: {
+    'no-console': 'warn',
+    'no-debugger': 'warn',
     '@typescript-eslint/no-empty-function': 'off',
     eqeqeq: ['error', 'always', { null: 'ignore' }],
     'generator-star-spacing': [
@@ -72,9 +74,9 @@ module.exports = defineConfig({
       {
         arrays: 'always-multiline',
         objects: 'always-multiline',
-        imports: 'never',
-        exports: 'never',
-        functions: 'never',
+        imports: 'ignore',
+        exports: 'ignore',
+        functions: 'ignore',
       },
     ],
     quotes: [

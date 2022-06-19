@@ -1,9 +1,9 @@
 {
   "editor.formatOnSave": true,
-  "path-autocomplete.pathMappings": {
-    "@/": "${folder}/src/",
+  "path-intellisense.mappings": {
+    "@": "${workspaceFolder}/src",
   },
-  "path-autocomplete.extensionOnImport": true,
+  "path-intellisense.extensionOnImport": true,
   "editor.acceptSuggestionOnCommitCharacter": false,
   "volar.completion.autoImportComponent": false,
   "[vue]": {
@@ -12,4 +12,7 @@
   "[ts]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.suggest.paths": false,
+  "javascript.suggest.paths": false
 }

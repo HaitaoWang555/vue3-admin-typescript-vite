@@ -20,7 +20,8 @@ const logo = ref(
         v-if="collapse"
         key="collapse"
         class="sidebar-logo-link"
-        to="/">
+        to="/"
+      >
         <img v-if="logo" :src="logo" class="sidebar-logo" />
         <h1 v-else class="sidebar-title">
           {{ title }}
@@ -46,7 +47,7 @@ const logo = ref(
   opacity: 0;
 }
 
-.sidebar-logo-container {
+#app .sidebar-logo-container {
   position: relative;
   width: 100%;
   height: 50px;
@@ -56,6 +57,9 @@ const logo = ref(
   overflow: hidden;
 
   & .sidebar-logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100%;
     width: 100%;
 
@@ -80,7 +84,7 @@ const logo = ref(
 
   &.collapse {
     .sidebar-logo {
-      margin-right: 0;
+      margin-right: 0px;
     }
   }
 }

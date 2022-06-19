@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { login, logout, getInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
+import type { CurrentUser, LoginParams } from '@/types/api'
 
 export interface IUser {
   token: string
@@ -19,7 +20,7 @@ export const useUserStore = defineStore({
   }),
   getters: {},
   actions: {
-    async login(userInfo: API.LoginParams): Promise<null> {
+    async login(userInfo: LoginParams): Promise<null> {
       const { username, password } = userInfo
       return new Promise((resolve, reject) => {
         login({ username: username.trim(), password: password })
@@ -34,7 +35,7 @@ export const useUserStore = defineStore({
           })
       })
     },
-    async getInfo(): Promise<API.CurrentUser> {
+    async getInfo(): Promise<CurrentUser> {
       return new Promise((resolve, reject) => {
         getInfo(this.token)
           .then((response) => {

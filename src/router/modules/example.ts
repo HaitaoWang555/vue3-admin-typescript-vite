@@ -10,13 +10,13 @@ const exampleRouter: RouteRecordRaw = {
   component: Layout,
   redirect: '/example/icons',
   name: 'ExamplePages',
-  meta: { title: 'Example', icon: 'help' },
+  meta: { title: 'Example', icon: 'example' },
   children: [
     {
       path: 'icons',
-      name: 'icons',
+      name: 'Icons',
       component: BaseIcons,
-      meta: { title: 'icons', icon: 'icon' },
+      meta: { title: 'Icons' },
     },
   ],
 }

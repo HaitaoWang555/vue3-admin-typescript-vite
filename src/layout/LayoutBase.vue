@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { Navbar, Sidebar, AppMain } from './components/index'
+import {
+  Navbar,
+  Sidebar,
+  AppMain,
+  Settings,
+  TagsView,
+} from './components/index'
 import { useResizeHandler } from './mixin/ResizeHandler'
 
 useResizeHandler()
@@ -10,6 +16,8 @@ const appStore = useAppStore()
 const sidebar = computed(() => appStore.sidebar)
 const device = computed(() => appStore.device)
 const fixedHeader = computed(() => settingsStore.fixedHeader)
+const showSettings = computed(() => settingsStore.showSettings)
+const needTagsView = computed(() => settingsStore.tagsView)
 
 const classObj = computed(() => {
   return {
@@ -30,14 +38,19 @@ const handleClickOutside = () => {
     <div
       v-if="device === 'mobile' && sidebar.opened"
       class="drawer-bg"
-      @click="handleClickOutside" />
+      @click="handleClickOutside"
+    />
     <Sidebar class="sidebar-container" />
-    <div class="main-container">
+    <div :class="{ hasTagsView: needTagsView }" class="main-container">
       <div :class="{ 'fixed-header': fixedHeader }">
         <Navbar />
+        <TagsView v-if="needTagsView" />
       </div>
       <AppMain />
     </div>
+    <BaseRightPanel v-if="showSettings">
+      <Settings />
+    </BaseRightPanel>
   </div>
 </template>
 
@@ -83,5 +96,16 @@ const handleClickOutside = () => {
 
 .mobile .fixed-header {
   width: 100%;
+}
+
+.hasTagsView {
+  .app-main {
+    /* 84 = navbar + tags-view = 50 + 34 */
+    min-height: calc(100vh - 84px);
+  }
+
+  .fixed-header + .app-main {
+    padding-top: 84px;
+  }
 }
 </style>

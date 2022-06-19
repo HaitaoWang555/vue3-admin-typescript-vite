@@ -1,6 +1,11 @@
 {
   "recommendations": [
     "dbaeumer.vscode-eslint",
-    "antfu.iconify"
+    "antfu.iconify",
+    "vue.vscode-typescript-vue-plugin",
+    "vue.volar",
+    "eamodio.gitlens",
+    "christian-kohler.path-intellisense",
+    "bradlc.vscode-tailwindcss"
   ]
 }

@@ -72,7 +72,7 @@ export default defineConfig(({ command }) => {
           // Auto register icon components https://icones.js.org/
           // 自动注册图标组件
           IconsResolver({
-            enabledCollections: ['ep'],
+            enabledCollections: ['ep', 'ic'],
           }),
           // Auto register Element Plus components
           // 自动导入 Element Plus 组件
@@ -83,6 +83,7 @@ export default defineConfig(({ command }) => {
       }),
 
       Icons({
+        scale: 1,
         autoInstall: true,
       }),
 

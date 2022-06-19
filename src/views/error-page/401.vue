@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 const ewizardClap = ref(
   'https://wpimg.wallstcn.com/007ef517-bafd-4066-aae4-6883632d9646'
 )
@@ -49,14 +47,16 @@ function back() {
           src="@/assets/401_images/401.gif"
           width="313"
           height="428"
-          alt="Girl has dropped her ice cream." />
+          alt="Girl has dropped her ice cream."
+        />
       </el-col>
     </el-row>
     <el-dialog
       v-model="dialogVisible"
       :append-to-body="false"
       title="随便看"
-      draggable>
+      draggable
+    >
       <img :src="ewizardClap" class="pan-img" />
       <template #footer />
     </el-dialog>

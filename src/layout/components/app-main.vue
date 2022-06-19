@@ -1,23 +1,28 @@
 <template>
   <section class="app-main">
     <router-view v-slot="{ Component }">
-      <component :is="Component" />
+      <div class="app-content">
+        <component :is="Component" />
+      </div>
     </router-view>
   </section>
 </template>
-
-<style scoped>
+<script lang="ts" setup></script>
+<style scoped lang="scss">
 .app-main {
   /* 50 = navbar  */
   min-height: calc(100vh - 50px);
   width: 100%;
   position: relative;
   overflow: hidden;
-  padding: 24px;
 }
 
 .fixed-header + .app-main {
   padding-top: 50px;
+}
+.app-content {
+  padding: 15px 20px;
+  padding-bottom: 0;
 }
 </style>
 

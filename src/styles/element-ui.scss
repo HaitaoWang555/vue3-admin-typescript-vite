@@ -47,3 +47,28 @@
 .el-range-separator {
   box-sizing: content-box;
 }
+
+.fixed-width {
+  .el-button--mini {
+    padding: 7px $smallPadding;
+    min-width: 60px;
+  }
+}
+
+.el-input__wrapper {
+  width: 100%;
+}
+
+.el-pagination {
+  text-align: center;
+  justify-content: center;
+}
+
+#search-form-wrap .el-form--small .el-form-item--small {
+  margin-bottom: $smallPadding;
+}
+
+.footerBtn>div {
+  text-align: center;
+  justify-content: center;
+}

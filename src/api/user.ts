@@ -1,9 +1,15 @@
 import type { AxiosPromise } from 'axios'
 import request from '@/utils/request'
+import type {
+  LoginParams,
+  ResponseBodyType,
+  LoginResult,
+  CurrentUser,
+} from '@/types/api'
 
 export function login(
-  data: API.LoginParams
-): AxiosPromise<API.ResponseBodyType<API.LoginResult>> {
+  data: LoginParams
+): AxiosPromise<ResponseBodyType<LoginResult>> {
   return request({
     url: '/vue-admin-template/user/login',
     method: 'post',
@@ -13,7 +19,7 @@ export function login(
 
 export function getInfo(
   token: string
-): AxiosPromise<API.ResponseBodyType<API.CurrentUser>> {
+): AxiosPromise<ResponseBodyType<CurrentUser>> {
   return request({
     url: '/vue-admin-template/user/info',
     method: 'get',
@@ -21,7 +27,7 @@ export function getInfo(
   })
 }
 
-export function logout(): AxiosPromise<API.ResponseBodyType<null>> {
+export function logout(): AxiosPromise<ResponseBodyType<null>> {
   return request({
     url: '/vue-admin-template/user/logout',
     method: 'post',

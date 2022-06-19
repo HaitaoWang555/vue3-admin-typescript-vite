@@ -1,5 +1,6 @@
 import table from './table'
 import user from './user'
+import publicApi from './public'
 import Mock from 'mockjs'
 import { param2Obj } from './utils'
 
@@ -13,7 +14,7 @@ type MockItem = {
   response: (params: iParams) => void
 }
 
-const mocks = [...user, ...table] as MockItem[]
+const mocks = [...user, ...table, ...publicApi] as MockItem[]
 
 // for front mock
 // please use it cautiously, it will redefine XMLHttpRequest,

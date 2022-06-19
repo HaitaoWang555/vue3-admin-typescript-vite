@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 
 import Layout from '@/layout/LayoutBase.vue'
-
+import Redirect from '@/components/Redirect/base-redirect.vue'
 import baseRouter from './modules/base'
 import dashboardRouter from './modules/dashboard'
 import nestedRouter from './modules/nested'
@@ -10,7 +10,18 @@ import errorRouter from './modules/error-page'
 import exampleRouter from './modules/example'
 import componentsRouter from './modules/components-page'
 
-const constantRoutes: RouteRecordRaw[] = [
+export const constantRoutes: RouteRecordRaw[] = [
+  {
+    path: '/redirect',
+    component: Layout,
+    meta: { hidden: true },
+    children: [
+      {
+        path: '/redirect/:path(.*)',
+        component: Redirect,
+      },
+    ],
+  },
   dashboardRouter,
 
   componentsRouter,
@@ -40,6 +51,12 @@ const router = createRouter({
   routes: constantRoutes,
 })
 
+/**
+ * asyncRoutes
+ * the routes that need to be dynamically loaded based on user roles
+ */
+export const asyncRoutes = []
+
 export default router
 
 export function resetRouter(): void {
@@ -47,6 +64,5 @@ export function resetRouter(): void {
     history,
     routes: constantRoutes,
   })
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ;(router as any).matcher = (newRouter as any).matcher // reset router
 }
