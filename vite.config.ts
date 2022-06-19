@@ -113,8 +113,19 @@ export default defineConfig(({ command }) => {
           }),
         ],
         manualChunks(id) {
-          if (id.includes('element-plus@')) {
-            return 'element-plus'
+          if (
+            id.includes('mock') ||
+            id.includes('sortablejs') ||
+            id.includes('lodash') ||
+            id.includes('@vue') ||
+            id.includes('@vue') ||
+            id.includes('nprogress') ||
+            id.includes('pinia') ||
+            id.includes('axios') ||
+            id.includes('vue-router') ||
+            id.includes('clipboard')
+          ) {
+            return 'lib'
           }
         },
       },
