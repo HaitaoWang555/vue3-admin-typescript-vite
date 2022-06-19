@@ -115,14 +115,6 @@ export default defineConfig(({ command }) => {
         manualChunks(id) {
           if (id.includes('element-plus@')) {
             return 'element-plus'
-          } else if (
-            id.includes('vue-router') ||
-            id.includes('pinia') ||
-            id.includes('lodash') ||
-            id.includes('mock') ||
-            id.includes('axios')
-          ) {
-            return 'lib'
           }
         },
       },
